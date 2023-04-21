@@ -1,22 +1,22 @@
 class EmojiDrop {
-  constructor(
+  constructor({
     hoverElement,
-    emojiCreationSpeed = 50,
-    emojiFallDistance = 100,
-    emojiFallTime = 1,
-    emojiSize,
-    emojiArray = ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"]
-  ) {
+    creationSpeed = 50,
+    fallDistance = 100,
+    fallTime = 1,
+    emojiSize = 25,
+    emojis = ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"],
+  }) {
     if (!hoverElement) {
       throw new Error("A hoverable element (class) is required");
     }
 
     this.hoverElement = document.querySelector(`.${hoverElement}`);
-    this.emojiCreationSpeed = emojiCreationSpeed;
-    this.emojiFallDistance = emojiFallDistance;
-    this.emojiFallTime = emojiFallTime;
+    this.creationSpeed = creationSpeed;
+    this.fallDistance = fallDistance;
+    this.fallTime = fallTime;
     this.emojiSize = emojiSize;
-    this.emojiArray = emojiArray;
+    this.emojis = emojis;
     this.createEmojiStyles();
     this.init();
   }
@@ -24,16 +24,16 @@ class EmojiDrop {
   init() {
     this.hoverElement.addEventListener(
       "mousemove",
-      this.throttle(this.createEmoji, this.emojiCreationSpeed)
+      this.throttle(this.createEmoji, this.creationSpeed)
     );
   }
 
   createEmoji = (e) => {
-    const randomEmoji = Math.floor(Math.random() * this.emojiArray.length);
+    const randomEmoji = Math.floor(Math.random() * this.emojis.length);
     const emoji = document.createElement("span");
 
     emoji.className = "emoji";
-    emoji.innerText = this.emojiArray[randomEmoji];
+    emoji.innerText = this.emojis[randomEmoji];
 
     const containerRect = this.hoverElement.getBoundingClientRect();
     const offsetX = containerRect.width / 4;
@@ -55,7 +55,7 @@ class EmojiDrop {
       top: -50px;
       left: 0;
       font-size: ${this.emojiSize}px;
-      animation: emojiDrop ${this.emojiFallTime}s ease-in-out infinite;
+      animation: emojiDrop ${this.fallTime}s ease-in-out infinite;
       pointer-events: none;
     }`;
 
@@ -71,7 +71,7 @@ class EmojiDrop {
       }
 
       100% {
-        transform: translateY(${this.emojiFallDistance}px);
+        transform: translateY(${this.fallDistance}px);
         opacity: 0;
       }
     }`;
