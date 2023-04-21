@@ -36,8 +36,8 @@ class EmojiDrop {
     emoji.innerText = this.emojis[randomEmoji];
 
     const containerRect = this.hoverElement.getBoundingClientRect();
-    const offsetX = containerRect.width / 4;
-    const offsetY = containerRect.height / 2;
+    const offsetX = containerRect.width / 4 + this.emojiSize / 2;
+    const offsetY = containerRect.height / 2 + this.emojiSize / 2;
 
     emoji.style.top = `${e.clientY - offsetY}px`;
     emoji.style.left = `${e.clientX - offsetX}px`;
