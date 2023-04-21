@@ -4,6 +4,7 @@ class EmojiDrop {
     emojiCreationSpeed = 50,
     emojiFallDistance = 100,
     emojiFallTime = 1,
+    emojiSize,
     emojiArray = ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"]
   ) {
     if (!hoverElement) {
@@ -14,6 +15,7 @@ class EmojiDrop {
     this.emojiCreationSpeed = emojiCreationSpeed;
     this.emojiFallDistance = emojiFallDistance;
     this.emojiFallTime = emojiFallTime;
+    this.emojiSize = emojiSize;
     this.emojiArray = emojiArray;
     this.createEmojiStyles();
     this.init();
@@ -52,7 +54,7 @@ class EmojiDrop {
       position: absolute;
       top: -50px;
       left: 0;
-      font-size: 24px;
+      font-size: ${this.emojiSize}px;
       animation: emojiDrop ${this.emojiFallTime}s ease-in-out infinite;
       pointer-events: none;
     }`;
