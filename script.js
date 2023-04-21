@@ -38,8 +38,11 @@ class EmojiDrop {
     const offsetX = this.emojiSize - this.emojiSize / 2;
     const offsetY = this.emojiSize - this.emojiSize / 2;
 
-    emoji.style.top = `${e.clientY - offsetY}px`;
-    emoji.style.left = `${e.clientX - offsetX}px`;
+    const top = e.clientY + window.scrollY - offsetY;
+    const left = e.clientX + window.scrollX - offsetX;
+
+    emoji.style.top = `${top}px`;
+    emoji.style.left = `${left}px`;
 
     this.hoverElement.appendChild(emoji);
 
