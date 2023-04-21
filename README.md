@@ -7,7 +7,7 @@ The emojis are falling. The most useless hover interaction out there. Very cool.
 Import the code
 
 ```
-<script src="https://cdn.jsdelivr.net/gh/waveshape-co/emoji-drop@1.0.1/script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/waveshape-co/emoji-drop@1.0.4/script.min.js"></script>
 ```
 
 Initialize EmojiDrop
