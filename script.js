@@ -76,9 +76,14 @@ class EmojiDrop {
       }
     }`;
 
-    const css = window.document.styleSheets[0];
-    css.insertRule(emojiAnimation, css.cssRules.length);
-    css.insertRule(emojiClass, css.cssRules.length);
+    // const css = window.document.styleSheets[0];
+    // css.insertRule(emojiAnimation, css.cssRules.length);
+    // css.insertRule(emojiClass, css.cssRules.length);
+
+    const style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = `${emojiAnimation} ${emojiClass}`;
+    document.head.appendChild(style);
   }
 
   throttle(func, delay) {
