@@ -1,6 +1,6 @@
-# Dropping emojis on hover
+# EmojiDrop
 
-The most useless hover interaction. Very cool.
+The emojis are falling. The most useless hover interaction out there. Very cool.
 
 ## Usage
 
