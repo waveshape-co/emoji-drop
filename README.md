@@ -48,3 +48,24 @@ The size (font size) of the unicode emojis.
 ### emojis
 
 An array of unicode emojis (strings)
+
+
+## Methods
+
+## updateEmojies
+
+Updates emojies array
+
+```
+const emojiDrop = new EmojiDrop({
+  hoverElement: "hover-text",
+  creationSpeed: 50,
+  fallDistance: 100,
+  fallTime: 1,
+  emojiSize: 25,
+  emojis: ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"]
+});
+
+emojiDrop.updateEmojies(["🤑", "😜"])
+
+```
