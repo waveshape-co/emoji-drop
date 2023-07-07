@@ -1,3 +1,6 @@
+const DEFAULT_EMOJIS = ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"];
+
+
 class EmojiDrop {
   constructor({
     hoverElement,
@@ -5,7 +8,7 @@ class EmojiDrop {
     fallDistance = 100,
     fallTime = 1,
     emojiSize = 25,
-    emojis = ["🤩", "😍", "🤑", "😜", "😎", "🤪", "🥳", "😘"],
+    emojis = [...DEFAULT_EMOJIS],
   }) {
     if (!hoverElement) {
       throw new Error("A hoverable element (class) is required");
@@ -96,5 +99,9 @@ class EmojiDrop {
       lastCall = now;
       return func.apply(this, args);
     };
+  }
+
+  updateEmojies(emojis = [...DEFAULT_EMOJIS]) {
+    this.emojis = emojis;
   }
 }
